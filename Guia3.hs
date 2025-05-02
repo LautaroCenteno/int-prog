@@ -56,7 +56,6 @@ algunoEsCero2 _ 0 = True
 algunoEsCero2 _ _ = False
 
 --e
-
 ambosSonCero:: Rational -> Rational -> Bool
 ambosSonCero x y | x == 0 && y == 0 = True
                  | otherwise = False
@@ -72,7 +71,6 @@ enMismoIntervalo x y | x <= 3 && y <= 3 = True
                      | x > 7 && y > 7 = True
                      | otherwise = False
 --g
-
 sumaDistintos:: Integer -> Integer -> Integer -> Integer
 sumaDistintos x y z | x == y && y == z = x
                     | x == y = x + z
@@ -81,13 +79,11 @@ sumaDistintos x y z | x == y && y == z = x
                     | otherwise = x + y + z
 
 --h
-
 esMultiploDe:: Integer -> Integer -> Bool
 esMultiploDe x y | mod x y == 0 = True
                  | otherwise = False
 
 --i
-
 digitoUnidades:: Integer -> Integer
 digitoUnidades x = mod x 10
 
@@ -96,10 +92,11 @@ digitoUnidades x = mod x 10
 digitoDecenas:: Integer -> Integer
 digitoDecenas x = div (mod x 100) 10
 
---Ejercicio 4
+--ejercicio 3
+
+--ejercicio 4
 
 --a
-
 productoInterno:: (Float, Float) -> (Float, Float) -> Float
 productoInterno (a,b) (c,d) = a*c + b*d
 
@@ -111,17 +108,14 @@ esParMenor (a,b) (c,d) | a<c && b<d = True
 --todoMenor2:: (Float, Float) -> (Float, Float) -> Bool
 
 --c
-
 distancia:: (Float, Float) -> (Float, Float) -> Float
 distancia (a,b) (c,d) = sqrt(((a-c)^2) + ((b-d)^2))
 
 --d
-
 sumaTerna:: (Int, Int, Int) -> Int
 sumaTerna (x,y,z) = x + y + z
 
 --e
-
 sumarSoloMultiplos:: (Int, Int, Int) -> Int -> Int
 sumarSoloMultiplos (a, b, c) d | mod a d == 0 && mod b d == 0 && mod c d == 0 = a + b + c
                                | mod a d == 0 && mod b d == 0 = a + b
@@ -163,8 +157,16 @@ esParMenor2 (a,b) (c,d) | a<c && b<d = True
 distancia2:: Punto2D -> Punto2D -> Float
 distancia2 (a,b) (c,d) = sqrt(((a-c)^2) + ((b-d)^2))
 
---Ejercicio 6
+--ejercicio 5
+
+--ejercicio 6
 bisiesto:: Integer -> Bool
 bisiesto x | mod x 4 /= 0 = False
            | mod x 100 == 0 && mod x 400 /= 0 = False
            | otherwise = True
+
+--ejercicio 7
+
+--ejercicio 8
+
+--ejercicio 9

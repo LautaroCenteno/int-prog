@@ -10,7 +10,13 @@ fibonacci n | n == 0 = 0
 --parteEntera:: Float -> Integer
 --parteEntera x | 
 
---hola soy github
+--ejercicio 3
+
+--ejercicio 4
+
+--ejercicio 5
+
+--ejercicio 6
 
 --ejercicio 7
 cantDigitos:: Int -> Int
@@ -20,6 +26,18 @@ cantDigitos n | n < 10 = 1
 iesimoDigito:: Int -> Int -> Int
 iesimoDigito n i = mod (div n (10^(cantDigitos(n)-i))) 10
 
+--ejercicio 8
+
+--ejercicio 9
+
+--ejercicio 10
+
+--ejercicio 11
+
+--ejercicio 12
+
+--ejercicio 13
+
 --ejercicio 14
 sumaPotencias:: Integer -> Integer -> Integer -> Integer
 sumaPotencias q n m | n == 1 = sumaPotenciasAux q n m
@@ -28,6 +46,8 @@ sumaPotencias q n m | otherwise = sumaPotencias q (n-1) m + sumaPotenciasAux q n
 sumaPotenciasAux:: Integer -> Integer -> Integer -> Integer
 sumaPotenciasAux q n m | m == 1 = q ^ (n+m)
 sumaPotenciasAux q n m | otherwise = q ^ (n+m) + sumaPotenciasAux q n (m-1)
+
+--ejercicio 15
 
 --ejercicio 16
 --a
@@ -47,6 +67,10 @@ nEsimoPrimo:: Integer -> Integer
 nEsimoPrimo 1 = 2
 nEsimoPrimo n = siguientePrimo (1 +nEsimoPrimo (n-1))
 
+--ejercicio 17
+
+--ejercicio 18
+
 --ejercicio 19
 siguientePrimo:: Integer -> Integer
 siguientePrimo n | esPrimo n = n
@@ -63,3 +87,7 @@ esSumaInicialDeKPrimos k n | n == sumaPrimerosKPrimos k = True
 sumaPrimerosKPrimos:: Integer -> Integer
 sumaPrimerosKPrimos 1 = 2
 sumaPrimerosKPrimos k = nEsimoPrimo k + sumaPrimerosKPrimos (k-1)
+
+--ejercicio 20
+
+--ejercicio 21
