@@ -10,6 +10,8 @@ fibonacci n | n == 0 = 0
 --parteEntera:: Float -> Integer
 --parteEntera x | 
 
+--hola soy github
+
 --ejercicio 7
 cantDigitos:: Int -> Int
 cantDigitos n | n < 10 = 1
