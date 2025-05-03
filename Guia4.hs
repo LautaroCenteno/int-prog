@@ -11,10 +11,23 @@ fibonacci n | n == 0 = 0
 --parteEntera x | 
 
 --ejercicio 3
+esDivisible:: Integer -> Integer -> Bool
+esDivisible 0 0 = False
+esDivisible x 0 = False
+esDivisible x y | div x y == 0 = True
+                | otherwise = False
 
 --ejercicio 4
+sumaImpares:: Integer -> Integer
+sumaImpares 0 = 0
+sumaImpares x = (-1) + 2*x + sumaImpares (x-1)
 
 --ejercicio 5
+--medioFact:: Integer -> Integer 
+--medioFact 0 = 0
+--medioFact 1 = 1
+--medioFact n = n * (medioFact ((n * (medioFact (n-1)))-1))
+
 
 --ejercicio 6
 
