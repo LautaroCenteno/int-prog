@@ -16,14 +16,20 @@ cantidadVeces s (x:xs) | s /= x = cantidadVeces (s) (xs)
                        | s == x = 1 + cantidadVeces (s) (xs)
 
 --ejercicio 2
---stockDeProducto:: [(String, Int)] -> String
---stockDeProducto (a,b):(c,d)
+stockDeProducto:: [(String, Integer)] -> String -> Integer
+stockDeProducto [] _ = 0
+stockDeProducto (x:xs) p | fst x == p = snd x
+                         | fst x /= p = stockDeProducto xs p
 
 --ejercicio 3
-
+dineroEnStock:: [(String, Integer)] -> [(String, Float)] -> Float
+dineroEnStock [] _ = 0
+dineroEnStock (x:xs) (y:ys) | fst x /= fst y = dineroEnStock (x:xs) (ys ++ [y])
+                            | fst x == fst y = fromIntegral (snd x) * snd y + dineroEnStock xs (y:ys) 
 
 --ejercicio 4
-
+--aplicarOferta:: [(String, Integer)] -> [(String, Float)] -> [(String, Float)]
+--aplicarOferta (x:xs) (y:ys)
 
 --ejercicio 5
 
