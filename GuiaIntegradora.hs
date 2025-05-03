@@ -16,23 +16,35 @@ cantidadVeces s (x:xs) | s /= x = cantidadVeces (s) (xs)
                        | s == x = 1 + cantidadVeces (s) (xs)
 
 --ejercicio 2
+--stockDeProducto:: [(String, Int)] -> String
+--stockDeProducto (a,b):(c,d)
 
 --ejercicio 3
 
+
 --ejercicio 4
+
 
 --ejercicio 5
 
+
 --ejercicio 6
+
 
 --ejercicio 7
 
+
 --ejercicio 8
+
 
 --ejercicio 9
 
+
 --ejercicio 10
+
 
 --ejercicio 11
 
+
 --ejercicio 12
+
