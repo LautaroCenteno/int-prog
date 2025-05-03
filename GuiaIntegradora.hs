@@ -28,8 +28,12 @@ dineroEnStock (x:xs) (y:ys) | fst x /= fst y = dineroEnStock (x:xs) (ys ++ [y])
                             | fst x == fst y = fromIntegral (snd x) * snd y + dineroEnStock xs (y:ys) 
 
 --ejercicio 4
---aplicarOferta:: [(String, Integer)] -> [(String, Float)] -> [(String, Float)]
---aplicarOferta (x:xs) (y:ys)
+aplicarOferta:: [(String, Integer)] -> [(String, Float)] -> [(String, Float)]
+aplicarOferta [] _ = []
+aplicarOferta (x:xs) (y:ys) | fst x /= fst y = aplicarOferta (x:xs) (ys ++ [y])
+                            | fst x == fst y && snd x > 10 = (fst x, fromIntegral (snd x) * snd y * 0.80):aplicarOferta xs (y:ys)
+                            | fst x == fst y && snd x <= 10 = (fst x, fromIntegral (snd x) * snd y):aplicarOferta xs (y:ys)
+
 
 --ejercicio 5
 
