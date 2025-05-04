@@ -34,9 +34,18 @@ aplicarOferta (x:xs) (y:ys) | fst x /= fst y = aplicarOferta (x:xs) (ys ++ [y])
                             | fst x == fst y && snd x > 10 = (fst x, fromIntegral (snd x) * snd y * 0.80):aplicarOferta xs (y:ys)
                             | fst x == fst y && snd x <= 10 = (fst x, fromIntegral (snd x) * snd y):aplicarOferta xs (y:ys)
 
---ejercicio 5
---maximo:: Tablero -> Integer
---maximo ((x:xs):ys) | (x:xs) == [x] = ys:
+--ejercicio 5 (Revisar si hay una forma menos rebuscada de hacer)
+mayorFila:: Fila -> Fila
+mayorFila (x:xs) | (x:xs) == [x] = [x]
+                 | x > head xs = mayorFila (x:(tail xs))
+                 | x == head xs = mayorFila (x:(tail xs))
+                 | x < head xs = mayorFila xs
+
+maximo:: Tablero -> Integer
+maximo (x:xs) | (x:xs) == [x] = head x
+                        | head (mayorFila x) > head (mayorFila (head xs)) = maximo ((mayorFila x):(tail xs))
+                        | head (mayorFila x) == head (mayorFila (head xs)) = maximo ((mayorFila x):(tail xs))
+                        | head (mayorFila x) < head (mayorFila (head xs)) = maximo xs
 
 
 type Fila = [Integer]
