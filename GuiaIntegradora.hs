@@ -35,8 +35,9 @@ aplicarOferta (x:xs) (y:ys) | fst x /= fst y = aplicarOferta (x:xs) (ys ++ [y])
                             | fst x == fst y && snd x <= 10 = (fst x, fromIntegral (snd x) * snd y):aplicarOferta xs (y:ys)
 
 --ejercicio 5
---maximo:: Tablero -> Interger
---maximo (x:xs) 
+--maximo:: Tablero -> Integer
+--maximo ((x:xs):ys) | (x:xs) == [x] = ys:
+
 
 type Fila = [Integer]
 type Tablero = [Fila]
