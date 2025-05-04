@@ -30,6 +30,8 @@ sumaImpares x = (-1) + 2*x + sumaImpares (x-1)
 
 
 --ejercicio 6
+--todosDigitosIguales:: Integer -> Bool
+--todosDigitosIguales x | x<10 = True
 
 --ejercicio 7
 cantDigitos:: Int -> Int
