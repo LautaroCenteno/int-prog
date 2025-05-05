@@ -141,4 +141,7 @@ losPrimeroNPerfectosAux a b c | a == c = []
 
 --ejercicio 12
 --listaDeAmigos:: [Integer] -> [(Integer, Integer)]
---listaDeAmigos (x:xs) | sonAmigos x (head xs) == True = [(x, head xs)] ++ listaDeAmigos (tail xs)
+--listaDeAmigos (x:xs) = listaDeAmigosAux x xs
+
+--listaDeAmigosAux:: Integer -> [Integer] -> [(Integer, Integer)]
+--listaDeAmigosAux n (x:xs) sonAmigos n (head xs)
