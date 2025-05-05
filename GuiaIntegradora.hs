@@ -88,19 +88,57 @@ masRepetido (x:xs) | tail (listaApariciones (conversorTablero (x:xs))) == [] = f
 --                                 | x /= head xs = aparicionesPrimerElemento (x:(tail xs))
 
 --ejercicio 7
+xFila:: Integer -> Tablero -> Fila
+xFila 1 (x:xs) = x
+xFila n (x:xs) = xFila (n-1) (xs)
 
+xColumna:: Integer -> Fila -> Integer
+xColumna 1 (x:xs) = x
+xColumna n (x:xs) = xColumna (n-1) (xs)
+
+valoresDeCamino:: Tablero -> Camino -> [Integer]
+valoresDeCamino (x:xs) [] = []
+valoresDeCamino (x:xs) (y:ys) = [xColumna (snd y) (xFila (fst y) (x:xs))] ++ valoresDeCamino (x:xs) ys
 
 --ejercicio 8
-
+--esCaminoFibo:: [Integer] -> Integer -> Bool
+--esCaminoFibo
 
 --ejercicio 9
+divisoresPropios:: Integer -> [Integer]
+divisoresPropios n = divisoresPropiosAux 1 n
 
+divisoresPropiosAux:: Integer -> Integer -> [Integer]
+divisoresPropiosAux a b | a == b = [a]
+                        | a < b && mod b a == 0 = [a] ++ divisoresPropiosAux (a+1) b
+                        | a < b && mod b a /= 0 = divisoresPropiosAux (a+1) b
 
 --ejercicio 10
+sumatoriaLista:: [Integer] -> Integer
+sumatoriaLista (x:xs) | (x:xs) == [x] = x
+                      | otherwise = x + sumatoriaLista xs
 
+sonAmigos:: Integer -> Integer -> Bool
+sonAmigos a b | sumatoriaLista (divisoresPropios a) == sumatoriaLista (divisoresPropios b) = True
+              | otherwise = False
 
 --ejercicio 11
+divisoresPropiosSinN:: Integer -> [Integer]
+divisoresPropiosSinN n = divisoresPropiosSinNAux 1 n
 
+divisoresPropiosSinNAux:: Integer -> Integer -> [Integer]
+divisoresPropiosSinNAux a b | a == b = []
+                        | a < b && mod b a == 0 = [a] ++ divisoresPropiosSinNAux (a+1) b
+                        | a < b && mod b a /= 0 = divisoresPropiosSinNAux (a+1) b
+
+losPrimeroNPerfectos:: Integer -> [Integer]
+losPrimeroNPerfectos n = losPrimeroNPerfectosAux 0 2 n
+
+losPrimeroNPerfectosAux:: Integer -> Integer -> Integer -> [Integer]
+losPrimeroNPerfectosAux a b c | a == c = []
+                              | a < c && sumatoriaLista (divisoresPropiosSinN b) /= b = losPrimeroNPerfectosAux a (b+1) c
+                              | a < c && sumatoriaLista (divisoresPropiosSinN b) == b = [b] ++ losPrimeroNPerfectosAux (a+1) (b+1) c
 
 --ejercicio 12
-
+--listaDeAmigos:: [Integer] -> [(Integer, Integer)]
+--listaDeAmigos (x:xs) | sonAmigos x (head xs) == True = [(x, head xs)] ++ listaDeAmigos (tail xs)
