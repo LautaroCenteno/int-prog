@@ -25,16 +25,18 @@ laQueMasHayQueCodificarAux a b c | tail b == [] = head b
                                  | hayQueCodificar (head b) c == True && hayQueCodificar (head (tail b)) c == False = laQueMasHayQueCodificarAux a ((head b):(tail (tail b))) c
 
 --ejercicio 4
---codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
---codificarFrase a b = codificarFraseAux a a b
+codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
+codificarFrase a b = codificarFraseAux a a b
 
---codificarFraseAux:: [Char] -> [Char] -> [(Char,Char)] -> [Char]
---codificarFraseAux a b c | hayQueCodificar (head b) c == False = laQueMasHayQueCodificarAux a (tail b) c
+codificarFraseAux:: [Char] -> [Char] -> [(Char,Char)] -> [Char]
+codificarFraseAux a b c | b == [] = []
+                        | hayQueCodificar (head b) c == False = [head b] ++ codificarFraseAux a (tail b) c
+                        | hayQueCodificar (head b) c == True = [letraMapeo (head b) c] ++ codificarFraseAux a (tail b) c
 
 
---letraMapeo:: Char -> [(Char,Char)] -> Char
---letraMapeo a b | a == fst (head b) = snd (head b)
---               | a /= fst (head b) = letraMapeo a (tail b)
+letraMapeo:: Char -> [(Char,Char)] -> Char
+letraMapeo a b | a == fst (head b) = snd (head b)
+               | a /= fst (head b) = letraMapeo a (tail b)
 
 --primerMapeo:: [Char] -> [(Char,Char)] -> Int
 --primerMapeo a b | hayQueCodificar (head a) b == True = 1
