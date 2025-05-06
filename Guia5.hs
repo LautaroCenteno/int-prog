@@ -23,9 +23,13 @@ reverso (x:xs) = ultimo (x:xs):reverso(principio (x:xs))
 
 --ejercicio 2
 --2.1
-
+pertenece:: (Eq t) => t -> [t] -> Bool
+pertenece _ [] = False
+pertenece x (y:ys) | x == y = True || pertenece x ys
+                   | otherwise = pertenece x ys
 
 --2.2
+--todosIguales:: (Eq t) => [t] -> Bool
 
 
 --2.3
