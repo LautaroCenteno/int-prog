@@ -119,7 +119,8 @@ sumatoriaLista (x:xs) | (x:xs) == [x] = x
                       | otherwise = x + sumatoriaLista xs
 
 sonAmigos:: Integer -> Integer -> Bool
-sonAmigos a b | sumatoriaLista (divisoresPropios a) == sumatoriaLista (divisoresPropios b) = True
+sonAmigos a b | a == b = False
+              | sumatoriaLista (divisoresPropios a) == sumatoriaLista (divisoresPropios b) = True
               | otherwise = False
 
 --ejercicio 11
@@ -140,8 +141,21 @@ losPrimeroNPerfectosAux a b c | a == c = []
                               | a < c && sumatoriaLista (divisoresPropiosSinN b) == b = [b] ++ losPrimeroNPerfectosAux (a+1) (b+1) c
 
 --ejercicio 12
---listaDeAmigos:: [Integer] -> [(Integer, Integer)]
---listaDeAmigos (x:xs) = listaDeAmigosAux x xs
+listaDeAmigos:: [Integer] -> [(Integer, Integer)]
+listaDeAmigos x = listaDeAmigosAux x x x
 
---listaDeAmigosAux:: Integer -> [Integer] -> [(Integer, Integer)]
---listaDeAmigosAux n (x:xs) sonAmigos n (head xs)
+listaDeAmigosAux:: [Integer] -> [Integer] -> [Integer] -> [(Integer, Integer)]
+listaDeAmigosAux [] _ _ = []
+listaDeAmigosAux x [] z = listaDeAmigosAux (tail x) z z
+listaDeAmigosAux x y z | sonAmigos (head x) (head y) == True && pertenece (head x) z = [(head x, head y)] ++ listaDeAmigosAux x (tail y) (quitar (head x) (quitar (head y) z))
+                       | otherwise = listaDeAmigosAux x (tail y) z
+
+quitar:: Integer -> [Integer] -> [Integer]
+quitar _ [] = []
+quitar x y | x == (head y) = quitar x (tail y)
+           | x /= (head y) = [head y] ++ quitar x (tail y)
+
+pertenece:: Integer -> [Integer] -> Bool
+pertenece _ [] = False
+pertenece x y | x == head y = True
+pertenece x y | x /= head y = pertenece x (tail y)
