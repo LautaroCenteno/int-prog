@@ -1,5 +1,6 @@
 module GuiaIntegradora where
-import Data.Bits (Bits(xor))
+
+import Guia4
 
 --ejercicio 1
 generarStock:: [String] -> [(String, Int)]
@@ -101,8 +102,9 @@ valoresDeCamino (x:xs) [] = []
 valoresDeCamino (x:xs) (y:ys) = [xColumna (snd y) (xFila (fst y) (x:xs))] ++ valoresDeCamino (x:xs) ys
 
 --ejercicio 8
---esCaminoFibo:: [Integer] -> Integer -> Bool
---esCaminoFibo
+esCaminoFibo:: [Int] -> Int -> Bool
+esCaminoFibo [x] y = fibonacci y == x
+esCaminoFibo (x:xs) y = fibonacci y == x && esCaminoFibo xs (y+1)
 
 --ejercicio 9
 divisoresPropios:: Integer -> [Integer]
