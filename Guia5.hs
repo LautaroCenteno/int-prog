@@ -11,7 +11,6 @@ ultimo:: [t] -> t
 ultimo [x] = x
 ultimo (x:xs) = ultimo xs
 
-
 --1.3
 principio:: [t] -> [t]
 principio [x] = []
@@ -25,11 +24,15 @@ reverso (x:xs) = ultimo (x:xs):reverso(principio (x:xs))
 --ejercicio 2
 --2.1
 
+
 --2.2
+
 
 --2.3
 
+
 --2.4
+
 
 --2.5
 quitar:: (Eq t) => t -> [t] -> [t]
