@@ -45,5 +45,3 @@ letraMapeo a b | a == fst (head b) = snd (head b)
 --reempazarPosPor:: Int -> [Char] -> Char -> [Char]
 --reempazarPosPor a b c | a == 1 = c:(tail b)
 --                      | a > 1 = reempazarPosPor
-
-
