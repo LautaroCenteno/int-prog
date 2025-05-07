@@ -1,4 +1,5 @@
 module Guia5 where
+import GHC.Exception (fromCallSiteList)
 
 --ejercicio 1
 --1.1
@@ -43,7 +44,8 @@ todosDistintos (x:xs) | pertenece x xs = False
                       | otherwise = True && todosDistintos xs
 
 --2.4
-
+hayRepetidos:: (Eq t) => [t] -> Bool
+hayRepetidos x = not(todosDistintos x)
 
 --2.5
 quitar:: (Eq t) => t -> [t] -> [t]
@@ -57,12 +59,31 @@ quitarString e (x:xs) | e == x = quitarString (e) (xs)
                       | otherwise = x:(quitar e xs)
 
 --2.6
+quitarTodos :: (Eq t ) => t -> [t] -> [t]
+quitarTodos _ [] = []
+quitarTodos n (x:xs) | n == x = quitarTodos n xs
+                     | otherwise = [x] ++ quitarTodos n xs
 
 --2.7
+eliminarRepetidos:: (Eq t) => [t] -> [t]
+eliminarRepetidos [] = []
+eliminarRepetidos [x] = [x]
+eliminarRepetidos (x:xs) = x:eliminarRepetidos (quitarTodos x xs)
 
 --2.8
+mismosElementos:: (Eq t) => [t] -> [t] -> Bool
+mismosElementos x y = mismosElementosAux (eliminarRepetidos x) (eliminarRepetidos y)
+
+mismosElementosAux:: (Eq t) => [t] -> [t] -> Bool
+mismosElementosAux [] [] = True
+mismosElementosAux x y | longitud x /= longitud y = False
+                       | pertenece (head x) y = True && mismosElementosAux (tail x) (quitar (head x) y)
+                       | otherwise = False
 
 --2.9
+capicua :: (Eq t) => [t] -> Bool
+capicua x | x == reverso x = True
+          | otherwise = False
 
 --ejercicio 3
 --3.1
@@ -77,7 +98,7 @@ maximo (x:xs) | xs == [] = x
 
 --version 2 REVISAR Y ENTENDER
 -- maximo :: [Int] -> Int
--- maximo (x:xs) | x > maximo xs = xs
+-- maximo (x:xs) | x > maximo xs = x
 --               | otherwise = maximo xs
 
 --3.4
