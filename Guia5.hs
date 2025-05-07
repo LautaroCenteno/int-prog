@@ -29,11 +29,18 @@ pertenece x (y:ys) | x == y = True || pertenece x ys
                    | otherwise = pertenece x ys
 
 --2.2
---todosIguales:: (Eq t) => [t] -> Bool
-
+todosIguales:: (Eq t) => [t] -> Bool
+todosIguales [] = False
+todosIguales [x] = True
+todosIguales (x:y:xs) | x == y = True && todosIguales (y:xs)
+                      | otherwise = False
 
 --2.3
-
+todosDistintos:: (Eq t) => [t] -> Bool
+todosDistintos [] = True
+todosDistintos [x] = True
+todosDistintos (x:xs) | pertenece x xs = False
+                      | otherwise = True && todosDistintos xs
 
 --2.4
 
