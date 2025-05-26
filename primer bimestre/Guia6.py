@@ -9,10 +9,13 @@ def imprimir_un_verso() -> None:
     print("Verso1...\n" "Verso2... \n" "Verso3...")
 
 #ejercicio 1.3
-
+def raizDe2() -> float:
+    raizde2: float = math.sqrt(2)
+    return round(raizde2, 2)
 
 #ejercicio 1.4
-
+def factorial_de_2() -> int:
+    return math.factorial(3)
 
 #ejercicio 1.5
 def perimetro() -> float:
@@ -20,16 +23,20 @@ def perimetro() -> float:
     return p
 
 #ejercicio 2.1
-
+def imprimir_saludo(nombre: str) -> str:
+    return "Hola " + nombre
 
 #ejercicio 2.2
-
+def raiz_cuadrada_de(numero: float) -> float:
+    return round(math.sqrt(numero), 2)
 
 #ejercicio 2.3
-
+def fahrenheit_a_celsius(temp_far:float) -> float:
+    return (temp_far - 32) * 5/9
 
 #ejercicio 2.4
-
+def imprimir_dos_veces(estribillo: str):
+    print((estribillo + "\n") * 2)
 
 #ejercicio 2.5
 def es_multiplo_de(n: int, m: int) -> bool:
@@ -46,7 +53,14 @@ def es_par(numero: int) -> bool:
         return False
     
 #ejercicio 2.7
-
+def cantidad_de_pizzas(comensales: int, min_cant_de_porciones: int) -> int:
+    porciones_necesarias: int = comensales * min_cant_de_porciones
+    cant_pizzas: int = 0
+    cant_porciones: int = 0
+    while porciones_necesarias > cant_porciones:
+        cant_pizzas += 1
+        cant_porciones += 8
+    return cant_pizzas
 
 #ejercicio 3.1
 def alguno_es_0(numero1: float, numero2: float) -> bool:
@@ -66,16 +80,30 @@ def es_bisiesto(año: int) -> bool:
     return año%400 == 0 or (año%4 == 0 and año%100 != 0)
 
 #ejercicio 4.1
-
+def peso_pino(altura_metros: int) -> int:
+    altura_centimetros: int = altura_metros * 100
+    peso_kg: int = 0
+    if altura_metros > 3:
+        peso_kg += 300 * 3
+        altura_metros -= 3
+        peso_kg += altura_metros * 100 *2
+        return peso_kg
+    return altura_centimetros * 3
 
 #ejercicio 4.2
-
+def es_peso_util(peso_kg: int) -> bool:
+    if 400 <= peso_kg <= 1000:
+        return True
+    return False
 
 #ejercicio 4.3
-
+#hacer sin composicion de funciones
+def sirve_pino(altura_m: int) -> bool:
+    return es_peso_util(peso_pino(altura_m))
 
 #ejercicio 4.4
-
+def sirve_pino(altura_m: int) -> bool:
+    return es_peso_util(peso_pino(altura_m))
 
 #ejercicio 5.1
 def devolver_el_doble_si_es_par(numero: int) -> int:
@@ -113,7 +141,11 @@ def n_pares_entre_10_40_for() -> None:
         print(i)
 
 #ejercicio 6.3
-
+def eco_10_veces() -> None:
+    veces = 0
+    while veces < 10:
+        print("eco")
+        veces += 1
 
 #ejercicio 6.4
 def cuenta_regresiva(n:int) -> None:
@@ -129,10 +161,28 @@ def cuenta_regresiva_for(n:int) -> None:
     print("Despegue")
 
 #ejercicio 6.5
-
+def viaje_tiempo(ano_partida: int, ano_llegada: int) -> None:
+    ano_actual: int = ano_partida
+    while ano_actual > ano_llegada:
+        ano_actual -= 1
+        print("Viajó un año al pasado, estamos en el año: " + str(ano_actual))
 
 #ejercicio 6.6
 
+'''
+def viaje_tiempo(ano_partida: int) -> None:
+    ano_actual: int = ano_partida
+    while ano_actual > (-364):
+        ano_actual -= 20
+        print("Viajó 20 años al pasado, estamos en el año: " + str(ano_actual))
+    ano_actual -= 20
+    print("Viajó 20 años al pasado, estamos en el año: " + str(ano_actual))
+    if (abs(ano_actual - 20) - 384) < (384 - abs(ano_actual)):
+        ano_actual -= 20
+        print("Viajó 20 años al pasado, estamos en el año: " + str(ano_actual))
+
+viaje_tiempo(-200)
+'''
 
 #ejercicio 7
 
