@@ -6,9 +6,6 @@ def devolver_el_doble_si_es_par(n:int) -> int:
         return n*2
     return n
 
-def fahrenheit_a_celsius(t:float) -> float:
-    return (t - 32) * 5/9
-
 def es_primo (n: int) -> bool:
     unidad: int = 2
     if abs(n) == 1 or n <= 0:
