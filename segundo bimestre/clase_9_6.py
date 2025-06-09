@@ -67,6 +67,20 @@ def producto_6(n: int) -> int:
 
 #Calcular T(n) para ambas implementaciones del siguiente problema, siendo n la cantidad de filas del a matriz m.
 
+def diag_principal_v1(m: list[list[int]]) -> list[int]:
+    res: list[int] = []                 #
+    n: int = len(m)                     # T_len(m)
+    i: int = 0                          # 1
+    while i < n:                        # n + 1     OE (entro n veces)
+        j: int = 0                      # n * 1
+        while j < n:                    # n * (n+1)     OE (entro n veces)
+            if i == j:                  # n * n
+                res.append(m[i][j])     # T_append * n²
+            j = j + 1                   # n²
+        i = i + 1                       
+    return res
+
+# es mas eficiente
 def diag_principal_v2(m: list[list[int]]) -> list[int]:
     res: list[int] = []         # 1
     n: int = len(m)             # 2
@@ -76,7 +90,8 @@ def diag_principal_v2(m: list[list[int]]) -> list[int]:
         i = i + 1               #
     return res                  # 1
 
-#T(n) = 
+#T1(n) =  
+#T2(n) = 
 
 #Comparar entre si los valores de T(n) obtenidos para cada implementacion
 
