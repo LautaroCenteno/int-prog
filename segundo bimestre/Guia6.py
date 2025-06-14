@@ -112,22 +112,58 @@ def devolver_el_doble_si_es_par(numero: int) -> int:
     return numero
 
 #ejercicio 5.2
-
+def devolver_valor_si_es_par_si_no_el_que_sigue(num: int) -> int:
+    if num % 2 == 0:
+        return num
+    return num+1
 
 #ejercicio 5.3
-
+def devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo9(num: int) -> int:
+    if num % 9 == 0:
+        return num*3
+    elif num % 3 == 0:
+        return num*2
+    return num
 
 #ejercicio 5.4
-
+def lindo_nombre(nom: str) -> None:
+    if len(nom) >= 5:
+        print("Tu nombre tiene muchas letras!")
+    else:
+        print("Tu nombre tiene menos de 5 caracteres")
+    return
 
 #ejercicio 5.5
-
+def elRango(num: int) -> None:
+    if num < 5:
+        print("Menor a 5")
+    elif num > 20:
+        print("Mayor a 20")
+    else:
+        print("Entre 10 y 20")
+    return
 
 #ejercicio 5.6
-
+def laburo(sexo: str, edad: int) -> None:
+    if sexo == "F":
+        if edad < 18 or edad >= 60:
+            print("Anda de vacaciones")
+        else:
+            print("Te toca trabajar")
+    elif sexo == "M":
+        if edad < 18 or edad >= 65:
+            print("Anda de vacaciones")
+        else:
+            print("Te toca trabajar")
+    return
 
 #ejercicio 6.1
-
+def uno_a_diez() -> None:
+    n: int = 0
+    while n < 10:
+        print (n+1)
+        n += 1
+    return
 
 #ejercicio 6.2
 def n_pares_entre_10_40() -> None:
@@ -185,7 +221,31 @@ viaje_tiempo(-200)
 '''
 
 #ejercicio 7
+def uno_a_diez_for() -> None:
+    for i in range(1,11):
+        print (i)
+    return
 
+def n_pares_entre_10_40_for() -> None:
+    for i in range(10,41,2):
+        print(i)
+    return
+
+def eco_10_veces_for() -> None:
+    for i in range(10):
+        print("eco")
+    return
+
+def cuenta_regresiva_for(n:int) -> None:
+    for i in range(n,0,-1):
+        print(i)
+    print("Despegue")
+    return
+
+def viaje_tiempo_for(ano_partida: int, ano_llegada: int) -> None:
+    for i in range(ano_partida, ano_llegada-1, -1):
+        print("Viajo un ano al pasado, estamos en el ano: " + str(i))
+    return
 
 #ejercicio 8.1
 
@@ -204,15 +264,40 @@ viaje_tiempo(-200)
 
 #ejercicio 8.6
 
+#ejercicio 9
+#Sea el siguiente código:
+def rt(x: int, g: int) -> int:
+    g = g + 1
+    return x + g
+g: int = 0
+def ro(x: int) -> int:
+    global g
+    g = g + 1
+    return x + g
 
 #ejercicio 9.1
-
+#Cuál es el resultado de evaluar tres veces seguidas ro(1)?
+"""
+print(ro(1))
+print(ro(1))
+print(ro(1))
+print (g)
+"""
+#Se modificara el valor de g global, siendo una unidad mas grande por cada vez que lo ejecute
 
 #ejercicio 9.2
+#Cuál es el resultado de evaluar tres veces seguidas rt(1, 0)?
 
+print(rt(1,0))
+print(rt(1,0))
+print(rt(1,0))
+print (g)
+
+#g solo se modifica dentro de la funcion, tomando el valor de 1  es sumada al 1 que ingresamos nosotros, el g externo queda igual.
 
 #ejercicio 9.3
+#En cada función, realizar la ejecución simbólica.
 
 
 #ejercicio 9.4
-
+#Dar la especificación para cada función, rt y ro.

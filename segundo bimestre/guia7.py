@@ -2,17 +2,35 @@ from queue import LifoQueue as Pila
 from queue import Queue as Cola
 import random
 
+#ejercicio 1.1
 def pertenece(s: list[int], e: int) -> bool:
     for i in s:
         if i == e:
             return True
     return False
 
+#ejercicio 1.2
+
+#ejercicio 1.3
 def suma_total (s: list[int]) -> int:
     sumatoria: int = 0
     for i in s:
         sumatoria += i
     return sumatoria
+
+#ejercicio 2.1
+def CerosEnPosicionesPares(s: list[int]) -> None:
+    for i in range(len (s)):
+        if i % 2 ==0:
+            s[i] = 0
+
+#ejercicio 2.2
+def CerosEnPosicionesPares2(s: list[int]):
+    for i in range(0,len (s),2):
+        s[i] = 0
+        s[i+1] = s[i+1]
+
+#============================================================
 
 def inflacion_total(s:list[float]) -> float:
     inflacion: float = 100
@@ -21,17 +39,6 @@ def inflacion_total(s:list[float]) -> float:
     return (inflacion - 100)
 
 lista: list[int] = [4,2,5,1,4,3]
-
-def CerosEnPosicionesPares(s: list[int]) -> None:
-    for i in range(len (s)):
-        if i % 2 ==0:
-            s[i] = 0
-
-
-def CerosEnPosicionesPares2(s: list[int]):
-    for i in range(0,len (s),2):
-        s[i] = 0
-        s[i+1] = s[i+1]
 
 def racha_inflacion_mas_larga(s:list[float]) -> int:
     racha_mas_larga: int = 0
