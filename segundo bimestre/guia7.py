@@ -51,28 +51,86 @@ def ordenados(s: list[int]) -> bool:
     return True
 
 #ejercicio 1.7
-
+def pos_maximo(s: list[int]) -> int:
+    if len(s) == 0:
+        return -1
+    pos: int = 0
+    for i in range(1,len(s)):
+        if s[i] > s[pos]:
+            pos = i
+    return pos
 
 #ejercicio 1.8
-
+def pos_minimo(s: list[int]) -> int:
+    if len(s) == 0:
+        return -1
+    pos: int = 0
+    for i in range(1,len(s)):
+        if s[i] < s[pos]:
+            pos = i
+    return pos
 
 #ejercicio 1.9
-
+def long_mayorASiete(s: list[str]) -> bool:
+    for i in range(len(s)):
+        if len(s[i]) > 7:
+            return True
+    return False
 
 #ejercicio 1.10
-
+def es_palindroma(s: str) -> bool:
+    reverso: str = ""
+    for i in range(len(s)-1,-1,-1):
+        reverso += s[i]
+    return s == reverso
 
 #ejercicio 1.11
-
+def iguales_consecutivos(s: list[int]) -> bool:
+    for i in range(len(s)-2):
+        if s[i] == s[i+1] and s[i] == s[i+2]:
+            return True
+    return False
 
 #ejercicio 1.12
-
+def vocales_distintas(s: str) -> bool:
+    cant_vocales: int = 0
+    vocales_usadas: str = ""
+    for i in s:
+        if i in "aeiou" and not(i in vocales_usadas):
+            cant_vocales += 1
+            vocales_usadas += i
+    return cant_vocales>=3
 
 #ejercicio 1.13
-
+def pos_secuencia_ordenada_mas_larga(s: list[int]) -> int:
+    sec_max: int = 1
+    sec_actual: int = 1
+    pos_actual: int = 0
+    pos_maximo: int = 0
+    for i in range(len(s)-1):
+        if s[i] <= s[i+1]:
+            if sec_actual == 1:
+                pos_actual = i
+            sec_actual += 1
+        else:
+            if sec_actual > sec_max:
+                sec_max = sec_actual
+                pos_maximo = pos_actual
+            sec_actual = 1
+            pos_actual = 0
+    if sec_actual > sec_max:
+                sec_max = sec_actual
+                pos_maximo = pos_actual
+    return pos_maximo
 
 #ejercicio 1.14
-
+def cantidad_digitos_impares(s: list[int]) -> int:
+    res: int = 0
+    for i in s:
+        for p in str(i):
+            if int(p)%2 != 0:
+                res += 1
+    return res
 
 #ejercicio 2.1
 def CerosEnPosicionesPares(s: list[int]) -> None:

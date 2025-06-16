@@ -9,7 +9,13 @@ def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Pila[int]:
          p.put(random.randint(desde, hasta))
     return p
 
-#ejercicio 2 
+#ejercicio 2
+def cantidad_elementos(p: Pila) -> int:
+    p.pop()
+
+pila: Pila = Pila()
+print(cantidad_elementos(pila))
+
 
 def imprimir_pila(p: Pila[int]) -> None:
     l: list[int] = []
@@ -20,7 +26,6 @@ def imprimir_pila(p: Pila[int]) -> None:
 
     for i in range(len(l)-1, -1, -1):
         p.put(l[i])
-
 
 #ejercicio 3
 """
