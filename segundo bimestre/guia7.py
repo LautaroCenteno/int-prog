@@ -18,6 +18,28 @@ def suma_total (s: list[int]) -> int:
         sumatoria += i
     return sumatoria
 
+#ejercicio 1.4
+
+#ejercicio 1.5
+
+#ejercicio 1.6
+
+#ejercicio 1.7
+
+#ejercicio 1.8
+
+#ejercicio 1.9
+
+#ejercicio 1.10
+
+#ejercicio 1.11
+
+#ejercicio 1.12
+
+#ejercicio 1.13
+
+#ejercicio 1.14
+
 #ejercicio 2.1
 def CerosEnPosicionesPares(s: list[int]) -> None:
     for i in range(len (s)):
@@ -29,6 +51,46 @@ def CerosEnPosicionesPares2(s: list[int]):
     for i in range(0,len (s),2):
         s[i] = 0
         s[i+1] = s[i+1]
+
+#ejercicio 2.3
+
+#ejercicio 2.4
+
+#ejercicio 2.5
+
+#ejercicio 2.6
+
+#ejercicio 3
+
+#ejercicio 4
+
+#ejercicio 5.1
+
+#ejercicio 5.2
+
+#ejercicio 5.3
+
+#ejercicio 5.4
+
+#ejercicio 6.1
+
+#ejercicio 6.2
+
+#ejercicio 6.3
+
+#ejercicio 6.4
+
+#ejercicio 6.5
+
+#ejercicio 6.6
+
+#ejercicio 7.1
+
+#ejercicio 7.2
+
+#ejercicio 7.3
+
+#ejercicio 7.4
 
 #============================================================
 
@@ -64,83 +126,3 @@ def columnas_ordenadas(m: list[list[int]]) -> list[bool]:
     for c in range (cant_col):
         res.append(columnas_ordenada(m, c))
     return res
-
-def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Pila[int]:
-    p: Pila[int] = Pila()
-    for i in range(cantidad):
-         p.put(random.randint(desde, hasta))
-    return p
-
-def imprimir_pila(p: Pila[int]) -> None:
-    l: list[int] = []
-    while not p.empty():
-        elem= p.get()
-        print(elem)
-        l.append(elem)
-
-    for i in range(len(l)-1, -1, -1):
-        p.put(l[i])
-
-
-"""
-def buscar_el_maximo(p: Pila[int]) -> int:
-    l: list[int] = []
-    while not p.empty():
-        elem = p.get()
-        l.append(elem)
-
-    for i in range(len(l)-1, -1, -1):
-        p.put(l[i])
-    
-    print(l)
-
-    maximo: int = 0
-    for i in range(len(l)-1):
-        if l[i] >= l[i+1]:
-            maximo = l[i]
-        else:
-            maximo = l[i+1]
-    return maximo
-"""
-
-#REVISAR
-
-def buscar_el_maximo(p: Pila[int]) -> int:
-    l:list[int] = [] #para conservar la pila
-    maximo: int = p.get()
-    l.append(maximo)
-
-    while not p.empty():
-        elem: int = p.get()
-        if elem > maximo:
-            maximo = elem
-
-    #restauro la pila
-    for i in range(len(l)-1, -1, -1):
-        p.put(l[i])
-    
-    return maximo
-
-""""
-pila: Pila[int] = generar_nros_al_azar(3,5,20)
-imprimir_pila(pila)
-print(buscar_el_maximo(generar_nros_al_azar(5,1,20)))
-"""
-
-def armar_secuencia_de_bingo() -> Cola[int]:
-    cola: Cola[int] = Cola()
-
-    #creo la lista con los primeros 100 numeros ordenados
-    numeros: list[int] = []
-    random.shuffle(numeros)
-
-    #mezclo
-    random.shuffle(numeros)
-
-    #los inserto en la cola
-    for i in range(len(numeros)):
-        cola.put(numeros[i])
-
-    return cola
-
-print(armar_secuencia_de_bingo())
