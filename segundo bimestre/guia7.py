@@ -10,6 +10,13 @@ def pertenece(s: list[int], e: int) -> bool:
     return False
 
 #ejercicio 1.2
+def divide_a_todos(s: list[int], e: int) -> bool:
+    if len(s) == 0:
+        return False
+    for i in range(0,len(s)):
+        if (s[i] % e) != 0:
+            return False
+    return True
 
 #ejercicio 1.3
 def suma_total (s: list[int]) -> int:
@@ -19,26 +26,53 @@ def suma_total (s: list[int]) -> int:
     return sumatoria
 
 #ejercicio 1.4
+def maximo(s: list[int]) -> int:
+    res: int = s[0]
+    for i in range(0,len(s)):
+        if s[i] > res:
+            res = s[i]
+    return res
 
 #ejercicio 1.5
+def minimo(s: list[int]) -> int:
+    res: int = s[0]
+    for i in range(0,len(s)):
+        if s[i] < res:
+            res = s[i]
+    return res
 
 #ejercicio 1.6
+def ordenados(s: list[int]) -> bool:
+    if len(s) == 0 or len(s) == 1:
+        return True
+    for i in range(0,len(s)-1):
+        if s[i] > s[i+1]:
+            return False
+    return True
 
 #ejercicio 1.7
 
+
 #ejercicio 1.8
+
 
 #ejercicio 1.9
 
+
 #ejercicio 1.10
+
 
 #ejercicio 1.11
 
+
 #ejercicio 1.12
+
 
 #ejercicio 1.13
 
+
 #ejercicio 1.14
+
 
 #ejercicio 2.1
 def CerosEnPosicionesPares(s: list[int]) -> None:
@@ -54,43 +88,63 @@ def CerosEnPosicionesPares2(s: list[int]):
 
 #ejercicio 2.3
 
+
 #ejercicio 2.4
+
 
 #ejercicio 2.5
 
+
 #ejercicio 2.6
+
 
 #ejercicio 3
 
+
 #ejercicio 4
+
 
 #ejercicio 5.1
 
+
 #ejercicio 5.2
+
 
 #ejercicio 5.3
 
+
 #ejercicio 5.4
+
 
 #ejercicio 6.1
 
+
 #ejercicio 6.2
+
 
 #ejercicio 6.3
 
+
 #ejercicio 6.4
+
 
 #ejercicio 6.5
 
+
 #ejercicio 6.6
+
 
 #ejercicio 7.1
 
+
 #ejercicio 7.2
+
 
 #ejercicio 7.3
 
+
 #ejercicio 7.4
+
 
 #============================================================
 
