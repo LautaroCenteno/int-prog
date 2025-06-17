@@ -1,6 +1,6 @@
 import unittest
 
-from Template_t1 import maximas_cantidades_consecutivos, maxima_cantidad_primos, tuplas_positivas_y_negativas, resolver_cuenta
+from simulacto_t1 import maximas_cantidades_consecutivos, maxima_cantidad_primos, tuplas_positivas_y_negativas, resolver_cuenta
 
 '''
 Ayudamemoria: entre los métodos para testear están los siguientes:
